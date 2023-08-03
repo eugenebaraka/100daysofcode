@@ -24,6 +24,8 @@ MENU = {
     }
 }
 
+profit = 0
+
 resources = {
     "water": 300,
     "milk": 200,
@@ -31,25 +33,18 @@ resources = {
 }
 
 # TODO: 1. Ask user what they would like
+def is_sufficient(choice_ingredients):
+    """Returns True when there is enough ingredients for the order and False otherwise."""
+    for ingredient, amount in choice_ingredients.items():
+        if amount > resources[ingredient]:
+            print(f"Sorry there is not enough {ingredient}")
+            return False
+    return True
 
-def serve_drink(choice):
+def process_coins(cost:float):
+    """Return the total calculated from the coins calculated."""
 
-    profit = 0
-
-    # to turn the machine off
-    if choice.lower() == "off":
-        pass
-    # check resources if we have enough resources
-    ingredients = MENU[choice]["ingredients"]
-    for ingredient, amount in ingredients.items():
-        if resources[ingredient] < amount:
-            print(f"Sorry there is not enough {ingredient}☹️")
-            # TODO: stop the program here
-        remaining_resources = resources[ingredient] - amount
-        resources.update({ingredient:remaining_resources})
-    # Ask for coins
-    cost = MENU[choice]["cost"]
-    to_continue = int(input(f"Your {choice} will cost ${cost}. Press 1 to buy and 0 if you are broke for this: "))
+    to_continue = int(input(f"The drink will cost ${cost}. Press 1 to buy and 0 if you are broke for this: "))
     if to_continue == 1:
         quarters = int(input("Please insert coins.\nHow many quarters do you have?: "))
         total_so_far = quarters * 0.25
@@ -66,31 +61,37 @@ def serve_drink(choice):
                     total_so_far += pennies*0.01
                     if total_so_far < cost:
                         broke_by = "{:.2f}".format(cost - total_so_far)
-                        print(f"You are too broke to buy this bro!😂 Find someone to lend you ${broke_by}!!")
+                        print(f"You are too broke to buy this bro!😂 Find someone to lend you ${broke_by}!! Money refunded.")
+                        return False
         if total_so_far >= cost:
-            change = "{:.2f}".format(total_so_far - cost)
-            print(f"Here's your {change} in change.\nHere's your {choice}. Bonne appetit!")
+            change = round(total_so_far - cost, 2)
+            # change = ":.2f".format()
+            print(f"Here's your {change} in change!")
+            return True
 
-            # calculate profit
-            profit += cost
+def make_coffee(choice:str, ingredients:dict):
+    """Deduct the required ingredients from the resources."""
+    for ingredient, amount in ingredients.items():
+        resources[ingredient] -= amount
+    print(f"Here's your {choice}. Bonne appetit!")
 
-    if choice == "report":
-        resources["Money"] = profit
-        return resources
+is_on = True
 
+while is_on:
+    choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
+    if choice == "off":
+        is_on = False
+    elif choice == "report":
+        print(f"Water: {resources['water']}")
+        print(f"Milk: {resources['milk']}")
+        print(f"Coffee: {resources['coffee']}")
+        print(f"Money: ${profit}")
     else:
-        pass
-
-
-drink_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
-if drink_choice in ["espresso", "latte", "cappuccino"]:
-    serve_drink(choice=drink_choice)
-
-
-
-
-# TODO: 2. Turn off machine by entering "off" to the prompt
-
-# TODO: 3. Print "report"
+        drink = MENU[choice]
+        if is_sufficient(drink['ingredients']):
+            cost = drink['cost']
+            profit += cost
+            if process_coins(cost):
+                make_coffee(choice, drink['ingredients'])
 
 
