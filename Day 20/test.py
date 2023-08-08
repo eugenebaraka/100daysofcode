@@ -1,6 +1,14 @@
 from turtle import Turtle, Screen
 
 tim = Turtle(shape="turtle")
+screen = Screen()
+screen.setup(width=600, height=600)
+score = 0
+tom = Turtle()
+tom.penup()
+# tom.goto(0, 580)
+tom.write(f"The score test: {score}", move=True, align="center", font=('Arial', 15, 'normal'))
+
 
 def up():
     tim.setheading(90)
@@ -20,7 +28,7 @@ def right():
 
 
 
-screen = Screen()
+
 screen.listen()
 screen.onkey(down, "Down")
 
