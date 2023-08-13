@@ -1,0 +1,3 @@
+Hello, I am learning a lot in Python rn!
+I am so excited to be a great python developer
+I am also learning computer theory

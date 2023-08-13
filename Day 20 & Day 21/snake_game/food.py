@@ -13,8 +13,8 @@ class Food(Turtle):
 
     def refresh_food(self):
         # create random position of the food particle
-        random_x = random.randint(-280, 280) # the screen size is -300,300
-        random_y = random.randint(-280, 280)
+        random_x = random.randint(-280, 260) # the screen size is -300,300
+        random_y = random.randint(-280, 260)
         self.goto(random_x, random_y)
 
 

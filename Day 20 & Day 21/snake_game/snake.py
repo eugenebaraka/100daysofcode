@@ -12,7 +12,6 @@ class Snake:
 
 
     def create_body(self):
-
         for position in STARTING_POSITIONS:
             self.add_segment(position)
 
@@ -50,3 +49,11 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+
+    def reset(self):
+        for segment in self.segments:
+            segment.goto(1000, 1000) # send the old snake to the location outside the screen
+        self.segments.clear()
+        self.create_body()
+        self.head = self.segments[0] # head of the snake
+
