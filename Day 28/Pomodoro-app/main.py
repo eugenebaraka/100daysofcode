@@ -34,17 +34,6 @@ def reset_timer():
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 
-# ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
-
-# ---------------------------- UI SETUP ------------------------------- #
-window = Tk()
-window.title("Pomodoro app")
-window.config(padx=100, pady=50, bg=YELLOW)
-
-# create timer Label at the top
-timer_label = Label(text="Timer", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 50))
-timer_label.grid(column=1, row=0)
-
 def start_timer():
 
     global SESSION_NUMBER
@@ -86,6 +75,7 @@ def start_timer():
     checkmark.config(text=f"{checkmarks}")
 
 
+# ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 def count_down(pomodoro_duration):
     """Update timer after every second and display on pomodoro canvas.
 
@@ -112,15 +102,21 @@ def count_down(pomodoro_duration):
         # automatically run timer again for next session
         start_timer()
 
+# ---------------------------- UI SETUP ------------------------------- #
+window = Tk()
+window.title("Pomodoro app")
+window.config(padx=100, pady=50, bg=YELLOW)
+
+# create timer Label at the top
+timer_label = Label(text="Timer", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 50))
+timer_label.grid(column=1, row=0)
 
 # create start and reset buttons
 start_button = Button(text="Start", bg=PINK, command=start_timer)
 start_button.grid(column=0, row=2)
 
-
 reset_button = Button(text="Reset", bg=PINK, command=reset_timer)
 reset_button.grid(column=2, row=2)
-
 
 # create canvas to lay the picture on
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
@@ -136,10 +132,8 @@ checkmark = Label(text="", fg=PINK, bg=YELLOW)
 checkmark.grid(column=1, row=3)
 
 
-# TODO #1: Update checkmarks after each pomodoro session to track the number
-# TODO #2: work on the reset session button
-# TODO #3: Allow user to choose number of sessions (maybe later)
-# TODO #4: Add ringtone when time is off
+# TODO #1: Allow user to choose number of sessions (maybe later)
+# TODO #2: Add ringtone when time is off
 
 
 window.mainloop()
