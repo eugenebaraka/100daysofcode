@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import messagebox
-import os
 import string
 import random
 import pyperclip # to copy the password on clipboard
@@ -55,10 +54,11 @@ def add_password():
                                        f"\nusername: {username} \npassword: {password} "
                                        f"\nIs it ok to save?")
         if is_ok:
-            if os.path.exists("data.txt"): # save data entered in data.txt
+            # if os.path.exists("data.txt"): # save data entered in data.txt
+            try:
                 with open("data.txt", "a") as data:
                     data.write(f"{website} |{username} |{password}\n")
-            else:
+            except FileNotFoundError:
                 with open("data.txt", "a") as data:
                     data.write("website |username/email |password \n")
                     data.write(f"{website_input.get()} |{username_input.get()} |{pass_input.get()}\n")
