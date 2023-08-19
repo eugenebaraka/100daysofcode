@@ -3,6 +3,7 @@ from tkinter import messagebox
 import string
 import random
 import pyperclip # to copy the password on clipboard
+import json
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 # get list of letters, digits, and special characters
@@ -38,46 +39,86 @@ def fill_in_password():
 # create new file to store passwords
 
 def add_password():
-    website = website_input.get()
-    print(f"website: {website}")
+    website = website_input.get().lower() # convert to lower case for easy searching
     username = username_input.get()
-    print(f"username: {username}")
     password = pass_input.get()
+
+    new_data = {
+        website: {
+            "username": username,
+            "password": password
+        }
+    }
 
     # make sure all no field is empty
     if len(website) == 0 or len(username) == 0 or len(password) == 0:
         messagebox.showerror(title="Info missing", message="Please make sure all fields are filled out")
 
     else: # all info is correct
-        is_ok = messagebox.askokcancel(title=website_input.get(),
-                               message=f"These are the details entered:"
-                                       f"\nusername: {username} \npassword: {password} "
-                                       f"\nIs it ok to save?")
-        if is_ok:
-            # if os.path.exists("data.txt"): # save data entered in data.txt
-            try:
-                with open("data.txt", "a") as data:
-                    data.write(f"{website} |{username} |{password}\n")
-            except FileNotFoundError:
-                with open("data.txt", "a") as data:
-                    data.write("website |username/email |password \n")
-                    data.write(f"{website_input.get()} |{username_input.get()} |{pass_input.get()}\n")
-            # clear out all inputs after saving
-            website_input.delete(first=0, last=END)
-            pass_input.delete(first=0, last=END)
 
+        try:
+            with open("data.json", "r") as data_file:
+                # read json file
+                data = json.load(data_file)
+
+                if website in data: # check if we already have the website name in the database
+                    ok_to_continue = messagebox.askokcancel(title="Already exists",
+                                           message=f"{website} already exists. Are you sure "
+                                                   f"you want to continue?")
+        except FileNotFoundError:
+            with open("data.json", "w") as data_file:
+                json.dump(new_data, data_file, indent=4)
+        else:
+
+            if ok_to_continue:
+                # update json with new data
+                data.update(new_data)
+                with open("data.json", "w") as data_file:
+                    json.dump(data, data_file, indent=4)
+                    # clear out all inputs after saving
+        website_input.delete(first=0, last=END)
+        pass_input.delete(first=0, last=END)
+
+
+# ---------------------------- SEARCH PASSWORD ------------------------------- #
+def search_password():
+    # get website input
+    website = website_input.get()
+
+    try:
+        # load json data
+        with open("data.json", "r") as data_file:
+            data = json.load(data_file)  # this is a dictionary
+
+    except FileNotFoundError:
+        messagebox.showerror(title="No database of passwords",
+                             message="You have no passwords saved. Make sure you add them in first")
+    else:
+        if website.lower() in data:
+            # retrieve username and password
+            website_details = data[website.lower()]  # contains username and password
+
+            # display message on screen
+            messagebox.showinfo(title=f"{website}",
+                                message=f"username: {website_details['username']} "
+                                        f"\npassword: {website_details['password']}")
+
+        else:
+            messagebox.showerror(title="Website name not found",
+                                 message=f"You don't have info on {website} website in your database")
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password Manager")
 window.config(padx=50, pady=50, bg="white")
 
-# create canvas to add image on
+# (LOGO) create canvas to add image on
 canvas = Canvas(width=200, height=200, bg="white", highlightthickness=0)
 logo_img = PhotoImage(file="logo.png")
 canvas.create_image(100, 100, image=logo_img)
 canvas.grid(column=1, row=0)
 
+# LABELS
 # create website label
 website_label = Label(text="Website: ", bg="white", fg="black")
 website_label.grid(column=0, row=1)
@@ -90,30 +131,37 @@ username_label.grid(column=0, row=2)
 password_label = Label(text="Password: ", bg="white", fg="black")
 password_label.grid(column=0, row=3)
 
+# BUTTONS
 # create the generate button label
 password_gen = Button(text="Generate Password", command=fill_in_password,
-                      highlightthickness=0)
+                      width=12, bg="white", borderwidth=0)
 password_gen.grid(column=2, row=3, pady=5)
 
 # create add password button
 password_add = Button(text="Add", command=add_password,
-                      width=33, highlightthickness=1)
+                      width=33, bg="white", borderwidth=0)
 password_add.grid(column=1, row=4, columnspan=2)
 
+# create search button
+search_button = Button(text="Search", command=search_password, width=12,
+                       bg="white", borderwidth=0)
+search_button.grid(column=2, row=1)
+
+# ENTRY BOXES
 # create input box for website
-website_input = Entry(width=35, bg="white", fg="black", highlightthickness=1)
-website_input.grid(column=1, columnspan=2, row=1, pady=5)
+website_input = Entry(width=20, bg="white", fg="black", highlightthickness=1)
+website_input.grid(column=1, row=1, pady=5)
 website_input.focus()
 
 
 # create input box for username/email;
-username_input = Entry(width=35, bg="white", fg="black", highlightthickness=1)
+username_input = Entry(width=36, bg="white", fg="black", highlightthickness=1)
 username_input.grid(column=1, columnspan=2, row=2)
 username_input.insert(0, "eugenebaraka@gmail.com")
-print(username_input.get())
+
 
 # create password entry box
-pass_input = Entry(width=18, bg="white", fg="black", highlightthickness=1, show="*")
+pass_input = Entry(width=20, bg="white", fg="black", highlightthickness=1, show="*")
 pass_input.grid(column=1, row=3)
 pass_input.focus()
 
