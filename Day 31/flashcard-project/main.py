@@ -5,9 +5,6 @@ import pandas
 BACKGROUND_COLOR = "#B1DDC6"
 
 #--------------------- REVEAL FRONT (QUESTION)------------------------
-def remove_word(): # if the word is known remove from list
-   data.drop(random_qst, axis='index', inplace=True)
-   data.write_csv("french_words.csv")
 
 #--------------------- REVEAL BACK (ANSWER)------------------------
 def reveal_answer(answer, text_id, image_id):
