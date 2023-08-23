@@ -1,74 +1,77 @@
 import random
-from tkinter import *
+import tkinter as tk
+from tkinter import Canvas, PhotoImage
 import pandas
 
 BACKGROUND_COLOR = "#B1DDC6"
-
-#--------------------- REVEAL FRONT (QUESTION)------------------------
-
-#--------------------- REVEAL BACK (ANSWER)------------------------
-def reveal_answer(answer, text_id, image_id):
-    # update image to back image
-    canvas.itemconfig(image_id, image=back_img)
-    # update word meaning in english
-    canvas.itemconfig(text_id, text=f"English\n\n{answer}",
-                             fill="red", font=("Courier", 55, "bold"), justify="center")
-
-#--------------------- UI SET UP-------------------------
-window = Tk()
-window.title("Flashy Flash Cards")
-window.config(bg=BACKGROUND_COLOR)
-
-# Canvas set up
-canvas = Canvas(width=800, height=650, bg=BACKGROUND_COLOR, highlightthickness=0)
-front_img = PhotoImage(file="./images/card_front.png")
-back_img = PhotoImage(file="./images/card_back.png")
-image_id = canvas.create_image(412, 330, image=front_img)
-canvas.grid(column=0, columnspan=3, row=1)
-
-canvas.create_text(380, 250, text=f"Click start below to begin learning", fill="red",
-                   font=("Courier", 20, "bold"))
-
-def asks_question():
-    data = pandas.read_csv("./data/french_words.csv")
-    print(data.shape)
-    n_qst = data.shape[0]  # number of questions
-
-    random_qst = random.randint(0, n_qst-1)
-    french = data.iloc[random_qst].French
-    english = data.iloc[random_qst].English
-
-    # front background
-    image_id = canvas.create_image(412, 330, image=front_img)
-    canvas.grid(column=0, columnspan=3, row=1)
-    # fill in French word on canvas
-    text_id = canvas.create_text(380, 250, text=f"French\n\n{french}",
-                                 fill="red", font=("Courier", 55, "bold"), justify="center")
-    canvas.after(4000, reveal_answer, english, text_id, image_id)
-
-# reveal answer after 4 seconds
-# canvas.after(4000, reveal_answer, english)
-
-# BUTTONS
-# Wrong answer
-wrong_img = PhotoImage(file="./images/wrong.png")
-wrong_button = Button(image=wrong_img, pady=-50, command=asks_question)
-wrong_button.grid(column=0, row=2)
-
-# Right answer
-right_img = PhotoImage(file="./images/right.png")
-right_button = Button(image=right_img, command=remove_word)
-right_button.grid(column=2, row=2)
-
-# Start Button
-start_img = PhotoImage(file="./images/start.png")
-start_button = Button(image=start_img, command = asks_question,
-                      height=100, width=100, activebackground=BACKGROUND_COLOR)
-start_button.flash()
-start_button.grid(column=1, row=2)
+data_file_read_only = "./data/french_words.csv"
+data_file = "./data/practice.csv"
 
 
+class MakeGui(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.config(bg=BACKGROUND_COLOR)
+        self.title("Flashy Flash Cards")
+        self.canvas = Canvas(width=800, height=535,
+                             bg=BACKGROUND_COLOR, highlightthickness=0) # to overlay pictures and text
 
+        self.front_img = PhotoImage(file="../flashcard-project/images/card_front.png")
+        self.back_img = PhotoImage(file="../flashcard-project/images/card_back.png")
+        self.wrong_img = PhotoImage(file="../flashcard-project/images/wrong.png")
+        self.right_img = PhotoImage(file="../flashcard-project/images/right.png")
 
+        self.image_id = self.canvas.create_image(412, 280, image=self.front_img)
+        self.canvas.grid(column=0, columnspan=3, row=0)
 
-window.mainloop()
+        self.text_id = self.canvas.create_text(380, 250, text= "",
+                                          font=("Courier", 30, 'italic'), fill="black")
+
+        wrong_button = tk.Button(image=self.wrong_img, command=self.ask_question)
+        wrong_button.grid(column=0, row=1)
+
+        self.right_button = tk.Button(image=self.right_img)
+        self.right_button.grid(column=2, row=1)
+
+        try:
+            self.data = pandas.read_csv(data_file)
+        except FileNotFoundError:
+            self.data = pandas.read_csv(data_file_read_only)
+
+        self.ask_question()
+
+    def ask_question(self):
+
+        self.canvas.itemconfig(self.image_id, image=self.front_img)
+        question, answer, idx = self.question_answer(self)
+        self.canvas.itemconfig(self.text_id, text=f"French\n\n{question}")
+
+        self.canvas.after(3000, lambda: self.change_img(answer, idx))
+
+    @staticmethod
+    def question_answer(self):
+        # random_idx = random.randint(0, self.data.shape[0])
+        print(self.data.index)
+        random_idx = random.choice(self.data.index)
+        print(random_idx)
+        question = self.data.iloc[random_idx].French
+        answer = self.data.iloc[random_idx].English
+
+        return question, answer, random_idx
+
+    @staticmethod
+    def remove_question(self, idx):
+        self.data.drop(index = idx, inplace=True)
+        self.data.to_csv(data_file, index=False)
+        self.ask_question()
+
+    def change_img(self, answer, idx):
+        self.canvas.itemconfig(self.image_id, image=self.back_img)
+        self.canvas.itemconfig(self.text_id, text=f"English\n\n{answer}")
+
+        # evaluate whether wrong or right, if right remove question
+        self.right_button.config(command = lambda: self.remove_question(self, idx))
+
+if __name__ == "__main__":
+    make_gui = MakeGui()
+    make_gui.mainloop()
