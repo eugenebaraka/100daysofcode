@@ -12,16 +12,16 @@ def generate_birthday():
     return year, month, day
 
 
-for _ in range(200):
+for _ in range(10):
     try:
         birthdays = open("birthdays.csv", "a")
     except FileNotFoundError:
         with open("birthdays.csv", "w") as birthdays:
             file = csv.writer(birthdays)
-            file.writerow("name, email, year, month, day")
+            file.writerow("name,email,year,month,day")
     else:
         random_name = random.choice(names)
         dates = generate_birthday()
-        birthdays.write(f"{random_name}, {email}, "
-                        f"{dates[0]}, {dates[1]}, {dates[2]}\n")
+        birthdays.write(f"{random_name},{email},"
+                        f"{dates[0]},{dates[1]},{dates[2]}\n")
         birthdays.close()
