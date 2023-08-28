@@ -35,3 +35,8 @@ import string
 # print(list(string.ascii_letters))
 # print(random.choice(string.digits))
 # print(string.punctuation)
+
+
+import keyring
+
+print(keyring.get_password("https://www.spotify.com", "eugene.baraka@mail.mcgill.ca"))

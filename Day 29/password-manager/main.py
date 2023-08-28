@@ -2,14 +2,16 @@ from tkinter import *
 from tkinter import messagebox
 import string
 import random
-import pyperclip # to copy the password on clipboard
+import pyperclip  # to copy the password on clipboard
 import json
+import keyring
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 # get list of letters, digits, and special characters
 letters = string.ascii_letters
 digits = string.digits
 symbols = string.punctuation
+
 
 def generate_password():
     # generate random number of characters in each category
@@ -28,18 +30,19 @@ def generate_password():
 
     return generated_password
 
+
 # fill the generated password in the password field
 def fill_in_password():
-    password = generate_password() # generate new random password
-    pass_input.insert(0, password) # fill it in
-    pyperclip.copy(password) # copy password on clipboard
+    password = generate_password()  # generate new random password
+    pass_input.insert(0, password)  # fill it in
+    pyperclip.copy(password)  # copy password on clipboard
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 # create new file to store passwords
 
 def add_password():
-    website = website_input.get().lower() # convert to lower case for easy searching
+    website = website_input.get().lower()  # convert to lower case for easy searching
     username = username_input.get()
     password = pass_input.get()
 
@@ -54,17 +57,17 @@ def add_password():
     if len(website) == 0 or len(username) == 0 or len(password) == 0:
         messagebox.showerror(title="Info missing", message="Please make sure all fields are filled out")
 
-    else: # all info is correct
+    else:  # all info is correct
 
         try:
             with open("data.json", "r") as data_file:
                 # read json file
                 data = json.load(data_file)
 
-                if website in data: # check if we already have the website name in the database
+                if website in data:  # check if we already have the website name in the database
                     ok_to_continue = messagebox.askokcancel(title="Already exists",
-                                           message=f"{website} already exists. Are you sure "
-                                                   f"you want to continue?")
+                                                            message=f"{website} already exists. Are you sure "
+                                                                    f"you want to continue?")
         except FileNotFoundError:
             with open("data.json", "w") as data_file:
                 json.dump(new_data, data_file, indent=4)
@@ -106,6 +109,7 @@ def search_password():
         else:
             messagebox.showerror(title="Website name not found",
                                  message=f"You don't have info on {website} website in your database")
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -153,18 +157,14 @@ website_input = Entry(width=20, bg="white", fg="black", highlightthickness=1)
 website_input.grid(column=1, row=1, pady=5)
 website_input.focus()
 
-
 # create input box for username/email;
 username_input = Entry(width=36, bg="white", fg="black", highlightthickness=1)
 username_input.grid(column=1, columnspan=2, row=2)
 username_input.insert(0, "eugenebaraka@gmail.com")
 
-
 # create password entry box
 pass_input = Entry(width=20, bg="white", fg="black", highlightthickness=1, show="*")
 pass_input.grid(column=1, row=3)
 pass_input.focus()
-
-
 
 window.mainloop()
