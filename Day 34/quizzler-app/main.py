@@ -1,13 +1,13 @@
 from question_model import Question
 from data import get_data
 from quiz_brain import QuizBrain
-from ui import MakeGui
+from ui import QuizInterface
 
 url = "https://opentdb.com/api.php" # api endpoint
 # api parameters
 params = {
     "amount": 10,
-    "category": 19,
+    "category": 18,
     "type": "boolean"
 }
 
@@ -22,9 +22,10 @@ for question in question_data:
 
 # ui = MakeGui()
 quiz = QuizBrain(question_bank)
+ui = QuizInterface(quiz)
 
-while quiz.still_has_questions():
-    quiz.next_question()
+# while quiz.still_has_questions():
+#     quiz.next_question()
 
 print("You've completed the quiz")
 print(f"Your final score was: {quiz.score}/{quiz.question_number}")
