@@ -20,22 +20,30 @@ NEW_ROW = {
 class DataManager:
     """This class is responsible for talking to the Google Sheet."""
 
-    def __init__(self, sheety_headers: dict, flights: FlightSearch):
+    def __init__(self, sheety_endpoint: str, sheety_headers: dict, flights: FlightSearch):
+        self.sheety_endpoint = sheety_endpoint
         self.sheety_headers = sheety_headers
         self.flights = flights
-        self.iata_codes = []  # store IATA codes for searching for flights
 
-    def add_iata_code(self, sheety_endpoint: str, city_row: dict):
+    def add_iata_code(self, city_row: dict):
         city = city_row["city"]
         LOCATION_PARAMS["term"] = city
         iata_code = self.flights.search_iata(params=LOCATION_PARAMS)
-        self.iata_codes.append(iata_code)
 
         NEW_ROW["price"]["city"] = city
         NEW_ROW["price"]["iataCode"] = iata_code
-        NEW_ROW["price"]["lowestPrice"] = city_row["lowestPrice"]
+        price = city_row["lowestPrice"]
+        NEW_ROW["price"]["lowestPrice"] = price
 
         row_num = city_row["id"]
-        row_url = f"{sheety_endpoint}/{row_num}"
+        row_url = f"{self.sheety_endpoint}/{row_num}"
 
         requests.put(url=row_url, json=NEW_ROW, headers=self.sheety_headers)
+
+        return iata_code, price
+
+    def get_current_data(self):
+        response = requests.get(url=self.sheety_endpoint, headers=self.sheety_headers)
+        data = response.json()["prices"]
+
+        return data

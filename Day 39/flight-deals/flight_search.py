@@ -1,4 +1,6 @@
 import datetime
+import re
+
 import requests
 import datetime as dt
 
@@ -24,15 +26,20 @@ class FlightSearch:
         after_six_months = dt.datetime.today() + datetime.timedelta(days=6*30)
         after_six_months = after_six_months.strftime("%d/%m/%Y")
 
+        get_iata = re.search("([a-zA-Z]*-)([A-Z]*)", body["fly_from"])
+        body["fly_from"] = get_iata[2]
         body["fly_to"] = destination
         body["date_from"] = tomorrow
         body["date_to"] = after_six_months
 
         kiwi_search_endpoint = f"{self.kiwi_endpoint}/v2/search"
 
-        response = requests.get(url=kiwi_search_endpoint, json=body, headers=self.kiwi_search_headers)
-        # data = response.json()["data"]
-        # cheapest_flight = data[0]["price"]
-        #
-        # return cheapest_flight
-        return response.text
+        response = requests.get(url=kiwi_search_endpoint, params=body, headers=self.kiwi_search_headers)
+
+        flights = response.json()["data"]
+
+        # return fly_from name to original form
+        body["fly_from"] = get_iata[0]
+
+        return flights
+
