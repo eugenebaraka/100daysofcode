@@ -44,6 +44,7 @@ class DataManager:
 
     def get_current_data(self):
         response = requests.get(url=self.sheety_endpoint, headers=self.sheety_headers)
+        print(response.text)
         data = response.json()["prices"]
 
         return data

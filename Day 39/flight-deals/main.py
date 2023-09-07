@@ -1,9 +1,7 @@
 import os
-import requests
 
 from flight_search import FlightSearch
 from data_manager import DataManager
-import datetime as dt
 from flight_data import FlightData
 from notification_manager import NotificationManager
 
@@ -27,7 +25,7 @@ kiwi_search_headers = {
     "apikey": os.environ.get("kiwi_api")
 }
 kiwi_search_body = {
-    "fly_from": "Ottawa-YOW",
+    "fly_from": "London-LON",
     "fly_to": "",
     "date_from": "01/09/2023",
     "date_to": "01/10/2023",
@@ -56,3 +54,5 @@ for flight_row in data:
         city = flight_row["city"]
         iata = flight_row["iataCode"]
         notifications.send_message(to_city=city, to_iata=iata, cheapest_flight=cheapest_flight, whatsapp=True)
+
+

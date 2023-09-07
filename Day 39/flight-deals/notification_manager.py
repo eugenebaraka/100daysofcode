@@ -7,7 +7,6 @@ TWILIO_ACC_SID = "AC3660c443e89f57e153472eadd6a5134f"
 TWILIO_AUTH_TOKEN = os.environ.get("twilio_auth_token")
 # to access whatsapp
 GREEN_API = os.environ.get("whatsaap_api")
-WHATSAPP_CHAT_ID = os.environ.get("whatsapp_chatid")
 WHATSAPP_ID_INSTANCE = os.environ.get("whatsapp_id_instance")
 GREEN_URL = "https://api.greenapi.com"
 WHATSAPP_HEADERS = {
@@ -38,7 +37,6 @@ class NotificationManager:
             payload = f"{{\r\n\t\"chatId\": \"{WHATSAPP_CHAT_ID}\",\r\n\t\"message\": " \
                       f"\"{message}\"\r\n}}"
             self.whatsapp_message(payload=payload)
-
 
         else:
             self.imessage(message_body=message)
