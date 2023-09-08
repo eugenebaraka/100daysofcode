@@ -40,8 +40,6 @@ class DataManager:
 
         requests.put(url=row_url, json=NEW_ROW, headers=self.sheety_headers)
 
-        return iata_code, price
-
     def get_current_data(self):
         response = requests.get(url=self.sheety_endpoint, headers=self.sheety_headers)
         print(response.text)
