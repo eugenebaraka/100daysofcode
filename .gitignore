@@ -6,3 +6,8 @@
 *venv
 *.venv
 *.cache
+*.inc
+*.re
+*.fsh
+*.vsh
+*.shader
