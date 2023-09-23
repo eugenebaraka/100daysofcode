@@ -1,0 +1,57 @@
+#
+ProjectdalFeelingCalmAreYouSiri
+DescriptionFeeling calm'
+CreationDate2022-10-19 13:43:07 PDT1
+	Copyright$(c) 2022 Apple. All rights reserved.">
+feelingr+SocialConversation#dalFeelingCalmAreYouSiriíinput"E
+followupr)SocialConversation#dalFeelingCalmFollowUpífollowupInput"3
+decliner(SocialConversation#dalFeelingCalmDecline"=
+nobodyToTalkTor+SocialConversation#dalFeelingNobodyToTalkTo"3
+	trustSirir&SocialConversation#dalFeelingTrustSiri“1.4.7Ía
+inputZ2followup:yesZ2decline:noZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÍI
+followupInputZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÇ	
+feelingäÔ
+yes d91259c065966b5f17093522dbbbd5022Ç
+
+socialCATIt
+matchers:5Z3
+identifierValue* d91259c065966b5f17093522dbbbd502:1Z
+identifierValue*yesZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* d91259c065966b5f17093522dbbbd502äÚ
+no 706f46da9ec6c4d63edac33c87cb1a482Ü
+
+socialCATIx
+matchers:5Z3
+identifierValue* 706f46da9ec6c4d63edac33c87cb1a48:5Z
+identifierValue*declineZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 706f46da9ec6c4d63edac33c87cb1a48äÖ
+nobodyToTalkTo 66c3e1997ed8f4619438338a145041dc2ç
+
+socialCATI
+matchers:5Z3
+identifierValue* 66c3e1997ed8f4619438338a145041dc:<Z!
+identifierValue*nobodyToTalkToZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 66c3e1997ed8f4619438338a145041dcä˜
+	trustSiri ca5cf6d1f14bf0e2aa2264e4b77b66d72Ñ
+
+socialCATIv
+matchers:5Z3
+identifierValue* ca5cf6d1f14bf0e2aa2264e4b77b66d7:3Z
+identifierValue*trustZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* ca5cf6d1f14bf0e2aa2264e4b77b66d7

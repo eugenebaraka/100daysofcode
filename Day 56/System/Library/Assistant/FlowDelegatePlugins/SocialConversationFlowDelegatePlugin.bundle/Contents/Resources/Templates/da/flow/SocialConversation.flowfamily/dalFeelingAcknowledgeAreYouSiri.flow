@@ -1,0 +1,69 @@
+*
+ProjectdalFeelingAcknowledgeAreYouSiri"
+DescriptionFeeling acknowledge'
+CreationDate2022-10-19 14:04:49 PDT1
+	Copyright$(c) 2022 Apple. All rights reserved."E
+feelingr2SocialConversation#dalFeelingAcknowledgeAreYouSiriíinput"L
+followupr0SocialConversation#dalFeelingAcknowledgeFollowUpífollowupInput"F
+decliner+SocialConversation#dalFeelingUpliftFollowupífollowupInput"B
+kindOfr(SocialConversation#dalFeelingAcknowledgeífollowupInput"=
+nobodyToTalkTor+SocialConversation#dalFeelingNobodyToTalkTo"3
+	trustSirir&SocialConversation#dalFeelingTrustSiri“1.4.7Íu
+input8Z2followup:yesZ2decline:noZ2kindOf:kindOfZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÍI
+followupInputZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÇ	
+feelingäÔ
+yes 41004a8ad379c7807c508ca71417da9c2Ç
+
+socialCATIt
+matchers:5Z3
+identifierValue* 41004a8ad379c7807c508ca71417da9c:1Z
+identifierValue*yesZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 41004a8ad379c7807c508ca71417da9cäÌ
+no 43ab5c11942124cbd6b044609ad62e362Å
+
+socialCATIs
+matchers:5Z3
+identifierValue* 43ab5c11942124cbd6b044609ad62e36:0Z
+identifierValue*noZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 43ab5c11942124cbd6b044609ad62e36äı
+kindOf 694bb74b71cf4472d4a93824b82200592Ö
+
+socialCATIw
+matchers:5Z3
+identifierValue* 694bb74b71cf4472d4a93824b8220059:4Z
+identifierValue*kindOfZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 694bb74b71cf4472d4a93824b8220059äÖ
+nobodyToTalkTo d1a3a8fc1066cc7e072499ae716d079a2ç
+
+socialCATI
+matchers:5Z3
+identifierValue* d1a3a8fc1066cc7e072499ae716d079a:<Z!
+identifierValue*nobodyToTalkToZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* d1a3a8fc1066cc7e072499ae716d079aä˜
+	trustSiri deb5a0f7e0ca33874a517cc5edf4ab572Ñ
+
+socialCATIv
+matchers:5Z3
+identifierValue* deb5a0f7e0ca33874a517cc5edf4ab57:3Z
+identifierValue*trustZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* deb5a0f7e0ca33874a517cc5edf4ab57

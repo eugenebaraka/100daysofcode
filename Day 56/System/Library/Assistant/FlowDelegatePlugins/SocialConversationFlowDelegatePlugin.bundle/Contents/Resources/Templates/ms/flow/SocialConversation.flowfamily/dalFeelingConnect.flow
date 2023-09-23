@@ -1,0 +1,32 @@
+
+ProjectdalFeelingConnectm
+Description^For when users tell Siri they are feeling lonely or insecure. Part of the 2020 Feelings revamp'
+CreationDate2022-10-19 10:49:04 PDT1
+	Copyright$(c) 2022 Apple. All rights reserved."7
+feelingr$SocialConversation#dalFeelingConnectíinput"3
+	trustSirir&SocialConversation#dalFeelingTrustSiri"=
+nobodyToTalkTor+SocialConversation#dalFeelingNobodyToTalkTo“1.4.7ÍA
+inputZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÇ	
+feelingä˜
+	trustSiri 0dffbeef409935ba0c5845cd33fa1e812Ñ
+
+socialCATIv
+matchers:5Z3
+identifierValue* 0dffbeef409935ba0c5845cd33fa1e81:3Z
+identifierValue*trustZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 0dffbeef409935ba0c5845cd33fa1e81äÖ
+nobodyToTalkTo c2013a01d8f6f694bc60cfadecb7ab492ç
+
+socialCATI
+matchers:5Z3
+identifierValue* c2013a01d8f6f694bc60cfadecb7ab49:<Z!
+identifierValue*nobodyToTalkToZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* c2013a01d8f6f694bc60cfadecb7ab49

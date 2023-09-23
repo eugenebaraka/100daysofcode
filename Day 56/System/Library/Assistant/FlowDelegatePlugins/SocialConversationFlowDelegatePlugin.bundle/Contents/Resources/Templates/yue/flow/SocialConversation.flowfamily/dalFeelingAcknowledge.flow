@@ -1,0 +1,32 @@
+ 
+ProjectdalFeelingAcknowledge"
+DescriptionFeeling acknowledge'
+CreationDate2022-10-19 14:03:37 PDT1
+	Copyright$(c) 2022 Apple. All rights reserved.";
+feelingr(SocialConversation#dalFeelingAcknowledgeíinput"3
+	trustSirir&SocialConversation#dalFeelingTrustSiri"=
+nobodyToTalkTor+SocialConversation#dalFeelingNobodyToTalkTo“1.4.7ÍA
+inputZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÇ	
+feelingä˜
+	trustSiri b4b5210aa04a2d2dc6bde21e3cbd5c252Ñ
+
+socialCATIv
+matchers:5Z3
+identifierValue* b4b5210aa04a2d2dc6bde21e3cbd5c25:3Z
+identifierValue*trustZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* b4b5210aa04a2d2dc6bde21e3cbd5c25äÖ
+nobodyToTalkTo 21da5a43e20741935785ff58515e50362ç
+
+socialCATI
+matchers:5Z3
+identifierValue* 21da5a43e20741935785ff58515e5036:<Z!
+identifierValue*nobodyToTalkToZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 21da5a43e20741935785ff58515e5036

@@ -1,0 +1,69 @@
+(
+ProjectdalFeelingCelebrateAreYouSiri%
+DescriptionUser feeling celebrate'
+CreationDate2022-10-19 14:01:31 PDT1
+	Copyright$(c) 2022 Apple. All rights reserved."C
+feelingr0SocialConversation#dalFeelingCelebrateAreYouSiriíinput"J
+followupr.SocialConversation#dalFeelingCelebrateFollowUpífollowupInput"F
+decliner+SocialConversation#dalFeelingUpliftFollowupífollowupInput"B
+kindOfr(SocialConversation#dalFeelingAcknowledgeífollowupInput"=
+nobodyToTalkTor+SocialConversation#dalFeelingNobodyToTalkTo"3
+	trustSirir&SocialConversation#dalFeelingTrustSiri“1.4.7Ís
+inputZ2followup:yesZ2decline:noZ2kindOf:kindOfZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÍI
+followupInputZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÇ	
+feelingäÔ
+yes 250a738212e61daa4c576a22b73a0ee02Ç
+
+socialCATIt
+matchers:5Z3
+identifierValue* 250a738212e61daa4c576a22b73a0ee0:1Z
+identifierValue*yesZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 250a738212e61daa4c576a22b73a0ee0äÌ
+no 4910dca1d981bcef8297ac2931446b7f2Å
+
+socialCATIs
+matchers:5Z3
+identifierValue* 4910dca1d981bcef8297ac2931446b7f:0Z
+identifierValue*noZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 4910dca1d981bcef8297ac2931446b7fäı
+kindOf 5b426ec48be18c8884a5591992ba98132Ö
+
+socialCATIw
+matchers:5Z3
+identifierValue* 5b426ec48be18c8884a5591992ba9813:4Z
+identifierValue*kindOfZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 5b426ec48be18c8884a5591992ba9813äÖ
+nobodyToTalkTo a06e050c0e39d56cbaa83f9969b7b1a92ç
+
+socialCATI
+matchers:5Z3
+identifierValue* a06e050c0e39d56cbaa83f9969b7b1a9:<Z!
+identifierValue*nobodyToTalkToZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* a06e050c0e39d56cbaa83f9969b7b1a9ä˜
+	trustSiri 5870ebbc53a34813c44aaa5675f728e32Ñ
+
+socialCATIv
+matchers:5Z3
+identifierValue* 5870ebbc53a34813c44aaa5675f728e3:3Z
+identifierValue*trustZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 5870ebbc53a34813c44aaa5675f728e3

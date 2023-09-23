@@ -1,0 +1,32 @@
+
+ProjectdalFeelingSoothe
+DescriptionFeeling soothe'
+CreationDate2022-10-19 13:52:50 PDT1
+	Copyright$(c) 2022 Apple. All rights reserved."6
+feelingr#SocialConversation#dalFeelingSootheíinput"3
+	trustSirir&SocialConversation#dalFeelingTrustSiri"=
+nobodyToTalkTor+SocialConversation#dalFeelingNobodyToTalkTo“1.4.7ÍA
+inputZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÇ	
+feelingä˜
+	trustSiri 51a676de4209d0d5f93a1b8f28f080382Ñ
+
+socialCATIv
+matchers:5Z3
+identifierValue* 51a676de4209d0d5f93a1b8f28f08038:3Z
+identifierValue*trustZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 51a676de4209d0d5f93a1b8f28f08038äÖ
+nobodyToTalkTo 7bc53276317d8c030c01d104bf4d4e8f2ç
+
+socialCATI
+matchers:5Z3
+identifierValue* 7bc53276317d8c030c01d104bf4d4e8f:<Z!
+identifierValue*nobodyToTalkToZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 7bc53276317d8c030c01d104bf4d4e8f

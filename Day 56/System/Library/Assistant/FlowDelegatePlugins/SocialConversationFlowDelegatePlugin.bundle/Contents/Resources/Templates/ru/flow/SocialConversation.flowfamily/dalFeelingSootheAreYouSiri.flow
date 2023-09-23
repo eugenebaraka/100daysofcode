@@ -1,0 +1,57 @@
+%
+ProjectdalFeelingSootheAreYouSiri
+DescriptionFeeling Soothe'
+CreationDate2022-10-19 13:54:26 PDT1
+	Copyright$(c) 2022 Apple. All rights reserved."@
+feelingr-SocialConversation#dalFeelingSootheAreYouSiriíinput"G
+followupr+SocialConversation#dalFeelingSootheFollowUpífollowupInput"5
+decliner*SocialConversation#dalFeelingSootheDecline"=
+nobodyToTalkTor+SocialConversation#dalFeelingNobodyToTalkTo"3
+	trustSirir&SocialConversation#dalFeelingTrustSiri“1.4.7Ía
+inputZ2followup:yesZ2decline:noZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÍI
+followupInputZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÇ	
+feelingäÔ
+yes c7cdf9838f5c3d283a559a7178955bcc2Ç
+
+socialCATIt
+matchers:5Z3
+identifierValue* c7cdf9838f5c3d283a559a7178955bcc:1Z
+identifierValue*yesZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* c7cdf9838f5c3d283a559a7178955bccäÚ
+no 127eefaf0c4ab144bc821e4c8ebb0a192Ü
+
+socialCATIx
+matchers:5Z3
+identifierValue* 127eefaf0c4ab144bc821e4c8ebb0a19:5Z
+identifierValue*declineZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 127eefaf0c4ab144bc821e4c8ebb0a19äÖ
+nobodyToTalkTo 01330751f2d3012d41977e75118f572b2ç
+
+socialCATI
+matchers:5Z3
+identifierValue* 01330751f2d3012d41977e75118f572b:<Z!
+identifierValue*nobodyToTalkToZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 01330751f2d3012d41977e75118f572bä˜
+	trustSiri 394a24ba280ddd8079ed0ed8f8ca563c2Ñ
+
+socialCATIv
+matchers:5Z3
+identifierValue* 394a24ba280ddd8079ed0ed8f8ca563c:3Z
+identifierValue*trustZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 394a24ba280ddd8079ed0ed8f8ca563c

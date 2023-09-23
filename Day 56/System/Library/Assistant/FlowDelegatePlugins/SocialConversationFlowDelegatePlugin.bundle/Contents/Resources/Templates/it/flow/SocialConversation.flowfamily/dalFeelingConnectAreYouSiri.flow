@@ -1,0 +1,57 @@
+&
+ProjectdalFeelingConnectAreYouSirin
+Description_For when users ask Siri if it is feeling lonely or insecure. Part of 2020 feelings pilot revamp'
+CreationDate2022-10-19 10:53:08 PDT1
+	Copyright$(c) 2022 Apple. All rights reserved."A
+feelingr.SocialConversation#dalFeelingConnectAreYouSiriíinput"H
+followupr,SocialConversation#dalFeelingConnectFollowupífollowupInput"6
+decliner+SocialConversation#dalFeelingConnectDecline"=
+nobodyToTalkTor+SocialConversation#dalFeelingNobodyToTalkTo"3
+	trustSirir&SocialConversation#dalFeelingTrustSiri“1.4.7Ía
+inputZ2followup:yesZ2decline:noZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÍI
+followupInputZ2	trustSiri:	trustSiriZ 2nobodyToTalkTo:nobodyToTalkToÇ	
+feelingäÔ
+yes ecea9696f7674e4f3c26b5c354061c6a2Ç
+
+socialCATIt
+matchers:5Z3
+identifierValue* ecea9696f7674e4f3c26b5c354061c6a:1Z
+identifierValue*yesZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* ecea9696f7674e4f3c26b5c354061c6aäÚ
+no 986037a74074977680b87ad5e0db6e442Ü
+
+socialCATIx
+matchers:5Z3
+identifierValue* 986037a74074977680b87ad5e0db6e44:5Z
+identifierValue*declineZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 986037a74074977680b87ad5e0db6e44äÖ
+nobodyToTalkTo e0e4bfe125e814f5d81122b396c0e6a22ç
+
+socialCATI
+matchers:5Z3
+identifierValue* e0e4bfe125e814f5d81122b396c0e6a2:<Z!
+identifierValue*nobodyToTalkToZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* e0e4bfe125e814f5d81122b396c0e6a2ä˜
+	trustSiri 38e4bfb7f169fc8ae799103b754401572Ñ
+
+socialCATIv
+matchers:5Z3
+identifierValue* 38e4bfb7f169fc8ae799103b75440157:3Z
+identifierValue*trustZ
+	namespace*
+intentName:A
+
+socialCATI3
+identifierValue* 38e4bfb7f169fc8ae799103b75440157

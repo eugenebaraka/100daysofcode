@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<caml xmlns="http://www.apple.com/CoreAnimation/1.0">
+  <CALayer id="#4" allowsEdgeAntialiasing="1" allowsGroupOpacity="1" bounds="0 0 408 487" contentsFormat="RGBA8" name="Root Layer" position="204 243.5">
+    <sublayers>
+      <CALayer allowsEdgeAntialiasing="1" allowsGroupBlending="0" allowsGroupOpacity="0" bounds="0 0 570 610" contentsFormat="RGBA8" hidden="0" name="App Stack" position="204.5 248">
+	<sublayers>
+	  <CALayer id="Color" allowsEdgeAntialiasing="1" allowsGroupOpacity="1" bounds="0 0 461 360" contentsFormat="RGBA8" hidden="0" name="Color" opacity="0.6" position="284.5 216" transform="matrix(0.5010917030568 -0.3930131004367 0 1.420871657399e-5 0.6472677098496 0.5032751091703 0 1.819505094614e-5 0 0 1 0 1.509825327511 -1.50990331349e-14 0 1.006550218341)">
+	    <backgroundColor opacity="0" value="0 0 0"/>
+	    <scriptComponents>
+	      <LKScriptComponentInstance name="Distort_Layer~COMP">
+		<component id="#3" src="assets/Distort_Layer~COMP.caml"/>
+		<values>
+		  <_aplyBB type="integer" value="0"/>
+		  <_bLP type="CGPoint" value="54 385"/>
+		  <_bRP type="CGPoint" value="285 205"/>
+		  <_dstL1 type="CALayer" object="Color"/>
+		  <_tLP type="CGPoint" value="287 565"/>
+		  <_tRP type="CGPoint" value="515 385"/>
+		  <_x type="integer" value="0"/>
+		  <_y type="integer" value="0"/>
+		</values>
+	      </LKScriptComponentInstance>
+	    </scriptComponents>
+	  </CALayer>
+	  <CALayer id="AppIcon" allowsEdgeAntialiasing="1" allowsGroupOpacity="1" bounds="0 0 461 360" contentsFormat="RGBA8" hidden="0" name="AppIcon" position="284.5 385" transform="matrix(0.5075921908894 0.3904555314534 0 -9.410834693983e-6 -0.6305555555556 0.5 0 1.20510966498e-5 0 0 1 0 -1 0 0 1)">
+	    <scriptComponents/>
+	  </CALayer>
+	</sublayers>
+      </CALayer>
+    </sublayers>
+    <scriptComponents>
+      <LKScriptComponentInstance name="Distort_Layer~COMP">
+	<component object="#3"/>
+	<values>
+	  <_aplyBB type="integer" value="0"/>
+	  <_dstL1 type="CALayer" object="#4"/>
+	  <_x type="integer" value="1"/>
+	  <_y type="integer" value="1"/>
+	</values>
+      </LKScriptComponentInstance>
+    </scriptComponents>
+    <states>
+      <LKState name="icon-only">
+	<elements>
+	  <LKStateSetValue final="false" targetId="Color" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	  <LKStateRemoveElement final="false" targetId="AppIcon" keyPath="scriptComponents">
+	    <object type="LKScriptComponentInstance" enabled="false" name="Distort_Layer~COMP">
+	      <component object="#3"/>
+	      <values>
+		<_aplyBB type="integer" value="0"/>
+		<_bLP type="CGPoint" value="280 205"/>
+		<_bRP type="CGPoint" value="515 385"/>
+		<_dstL1 type="CALayer" object="AppIcon"/>
+		<_tLP type="CGPoint" value="54 385"/>
+		<_tRP type="CGPoint" value="287 565"/>
+		<_x type="real" value="0.01"/>
+		<_y type="real" value="0.01"/>
+	      </values>
+	    </object>
+	  </LKStateRemoveElement>
+	  <LKStateSetValue final="false" targetId="AppIcon" keyPath="transform">
+	    <value type="CATransform3D" value="matrix(0.9994937303177 5.076342905726e-4 0 -2.729216615986e-6 -1.232884718478e-4 1.000123620786 0 6.64627880576e-7 0 0 1 0 -0.1168446818237 0.1171596270578 0 0.9996173511035)"/>
+	  </LKStateSetValue>
+	  <LKStateSetValue final="false" targetId="AppIcon" keyPath="bounds.size.width">
+	    <value type="integer" value="408"/>
+	  </LKStateSetValue>
+	  <LKStateSetValue final="false" targetId="AppIcon" keyPath="bounds.size.height">
+	    <value type="integer" value="408"/>
+	  </LKStateSetValue>
+	  <LKStateSetValue final="false" targetId="AppIcon" keyPath="position.y">
+	    <value type="real" value="304.883"/>
+	  </LKStateSetValue>
+	  <LKStateSetValue final="false" targetId="AppIcon" keyPath="position.x">
+	    <value type="real" value="285.117"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+    </states>
+    <stateTransitions>
+      <LKStateTransition fromState="*" toState="icon-only">
+	<elements>
+	  <LKStateTransitionElement final="false" key="bounds.size.height" targetId="AppIcon">
+	    <animation type="CASpringAnimation" damping="50" mass="1.5" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="bounds.size.height" duration="0.7" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	  <LKStateTransitionElement final="false" key="transform" targetId="AppIcon">
+	    <animation type="CASpringAnimation" damping="50" mass="1.5" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="transform" duration="0.7" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	  <LKStateTransitionElement final="false" key="opacity" targetId="Color">
+	    <animation type="CASpringAnimation" damping="50" mass="1.5" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="opacity" duration="0.7" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	  <LKStateTransitionElement final="false" key="position.x" targetId="AppIcon">
+	    <animation type="CASpringAnimation" damping="50" mass="1.5" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="position.x" duration="0.7" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	  <LKStateTransitionElement final="false" key="position.y" targetId="AppIcon">
+	    <animation type="CASpringAnimation" damping="50" mass="1.5" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="position.y" duration="0.7" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	  <LKStateTransitionElement final="false" key="bounds.size.width" targetId="AppIcon">
+	    <animation type="CASpringAnimation" damping="50" mass="1.5" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="bounds.size.width" duration="0.7" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="icon-only" toState="*">
+	<elements>
+	  <LKStateTransitionElement final="false" key="bounds.size.height" targetId="AppIcon">
+	    <animation type="CASpringAnimation" damping="50" mass="2" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="bounds.size.height" duration="0.8" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	  <LKStateTransitionElement final="false" key="transform" targetId="AppIcon">
+	    <animation type="CASpringAnimation" damping="50" mass="2" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="transform" duration="0.8" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	  <LKStateTransitionElement final="false" key="opacity" targetId="Color">
+	    <animation type="CASpringAnimation" damping="50" mass="2" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="opacity" duration="0.8" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	  <LKStateTransitionElement final="false" key="position.x" targetId="AppIcon">
+	    <animation type="CASpringAnimation" damping="50" mass="2" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="position.x" duration="0.8" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	  <LKStateTransitionElement final="false" key="position.y" targetId="AppIcon">
+	    <animation type="CASpringAnimation" damping="50" mass="2" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="position.y" duration="0.8" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	  <LKStateTransitionElement final="false" key="bounds.size.width" targetId="AppIcon">
+	    <animation type="CASpringAnimation" damping="50" mass="2" stiffness="300" velocity="0" mica_autorecalculatesDuration="1" keyPath="bounds.size.width" duration="0.8" fillMode="backwards"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+    </stateTransitions>
+  </CALayer>
+</caml>
