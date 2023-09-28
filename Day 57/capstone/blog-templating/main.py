@@ -13,11 +13,15 @@ def home():
     return render_template("index.html", posts=all_posts)
 
 
-@app.route('/<blog_id>')
-def blog_post(blog_id):
-
-    return render_template("post.html")
+@app.route('/blog/<int:index>')
+def get_blog(index):
+    requested_post = None
+    for post in all_posts:
+        if post["id"] == index:
+            requested_post = post
+    return render_template("post.html", post=requested_post)
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
