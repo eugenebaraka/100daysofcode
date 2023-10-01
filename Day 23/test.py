@@ -12,7 +12,6 @@ screen.setup(600, 600)
 screen.tracer(0)
 
 
-
 for _ in range(len(colors)):
     time.sleep(0.01)
     screen.update()
@@ -21,10 +20,5 @@ for _ in range(len(colors)):
     t.color(random.choice(colors))
     t.turtlesize(stretch_wid=1, stretch_len=2)
     t.goto(random.randint(-300, 300), random.randint(-300, 300))
-
-
-
-
-
 
 screen.exitonclick()
